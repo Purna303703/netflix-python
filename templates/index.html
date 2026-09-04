@@ -8,8 +8,24 @@
 </head>
 <body>
   <!-- Netflix Opening "N" Zoom Animation Screen -->
+  <!-- Cinematic Netflix Official "N" Screen -->
   <div class="intro-screen">
-    <div class="netflix-n"></div>
+    <div class="netflix-logo-box">
+      <svg class="netflix-n-svg" viewBox="0 0 111 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Left vertical bar (dark shade) -->
+        <path d="M0 0H33.8V160H0V0Z" fill="#B81D24"/>
+        <!-- Right vertical bar (dark shade) -->
+        <path d="M77.2 0H111V160H77.2V0Z" fill="#B81D24"/>
+        <!-- Center Diagonal bar with 3D drop-shadow (bright red) -->
+        <path d="M0 0H33.8L111 160H77.2L0 0Z" fill="#E50914" filter="url(#drop-shadow)"/>
+        
+        <defs>
+          <filter id="drop-shadow" x="-30%" y="-30%" width="160%" height="160%">
+            <feDropShadow dx="-4" dy="0" stdDeviation="6" flood-color="#000000" flood-opacity="0.85"/>
+          </filter>
+        </defs>
+      </svg>
+    </div>
   </div>
 
   <nav>
