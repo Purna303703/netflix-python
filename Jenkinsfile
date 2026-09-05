@@ -8,7 +8,7 @@ pipeline{
                 checkout scm
             }
         }
-        stege('buld the code'){
+        stage('buld the code'){
             steps{
                 sh'''
                 pip install flask
@@ -19,7 +19,7 @@ pipeline{
 
         stage('Scan tha code'){
             steps{
-                withSonarQubeEnv(credentialsId: 'SonarQube') {
+                withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'SonarQube') {
                     sh 'sonar-scanner'
 }
 
@@ -46,6 +46,6 @@ pipeline{
             }
         }
 
-        
+
     }
 }
