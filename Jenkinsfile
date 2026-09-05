@@ -11,8 +11,9 @@ pipeline{
         stage('buld the code'){
             steps{
                 sh'''
-                pip install flask --brack-system-packages
-                python3 -m py_compile app.py
+                 python3 -m venv venv
+                 . venv/bin/activate
+                 pip install flask
                 '''
             }
         }
