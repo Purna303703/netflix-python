@@ -1,0 +1,38 @@
+replicaCount: 3
+
+image:
+  repository: nginx
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+service:
+  type: Nodeport
+  port: 80
+  targetPort: 500
+
+resources:
+  limits:
+    cpu: 200m
+    memory: 256Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+livenessProbe:
+  httpGet:
+    path: /
+    port: 80
+  initialDelaySeconds: 10
+  periodSeconds: 20
+  timeoutSecond: 7
+  failureThrushold: 3
+
+readnessProbe:
+  httpGet:
+    path: /
+    port: 80
+  initialDelaySeconds: 9
+  periodSeconds: 5
+  timeoutSeconds: 4
+  failureThrushold: 3
+
