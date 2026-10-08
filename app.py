@@ -11,7 +11,7 @@ def login():
 
         print(f"[LOGIN ATTEMPT] User: {mobile_or_email}, Remember: {bool(remember)}")
  
-        return f"<h2 style='color:green;text-align:center;margin-top:50px;'>Welcome {mobile_or_email}! Logged in successfully.</h2>"
+        return f"<h2 style='color:green;text-align:center;margin-top:50px;'>Welcome{mobile_or_email}! Logged in successfully.</h2>"
 
     return render_template('index.html')
 

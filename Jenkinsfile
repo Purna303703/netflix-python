@@ -13,7 +13,8 @@ pipeline{
                 sh'''
                  python3 -m venv venv
                  . venv/bin/activate
-                 pip install flask
+                 pip install --upgrade pip
+                 pip install -r requirements.txt
                 '''
             }
         }
@@ -22,11 +23,19 @@ pipeline{
             steps{
                 withSonarQubeEnv(installationName: 'SonarQube', credentialsId: 'SonarQube') {
                      script {
-                def scannerHome = tool 'sonar-scanner'
-                sh "${scannerHome}/bin/sonar-scanner"
-            }
-}
+                     def scannerHome = tool 'sonar-scanner'
+                     sh "${scannerHome}/bin/sonar-scanner"
+                    }
+                }
 
+            }
+        }
+
+        stage('Quality Gate') {
+            steps {
+                timeout(time: 5, unit: 'MINUTES') {
+                waitForQualityGate abortPipeline: true
+                }
             }
         }
 

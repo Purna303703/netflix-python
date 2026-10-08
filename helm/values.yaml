@@ -1,13 +1,13 @@
 replicaCount: 3
 
 image:
-  repository: nginx
-  tag: "latest"
+  repository: netflix
+  tag: latest
   pullPolicy: IfNotPresent
 
 service:
   type: NodePort
-  port: 80
+  port: 500
   targetPort: 500
 
 resources:
